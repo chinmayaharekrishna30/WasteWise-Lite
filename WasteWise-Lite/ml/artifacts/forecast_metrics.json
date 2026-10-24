@@ -1,0 +1,74 @@
+{
+  "model_version": "demand-forecast-v1",
+  "algorithm": "xgboost",
+  "features": [
+    "lag_1",
+    "lag_7",
+    "lag_14",
+    "roll_mean_7",
+    "roll_mean_14",
+    "roll_mean_28",
+    "dow",
+    "month",
+    "is_weekend",
+    "unit_price",
+    "discount_pct",
+    "product_id",
+    "category_code"
+  ],
+  "split": {
+    "train_rows": 1082,
+    "val_rows": 227,
+    "test_rows": 221,
+    "test_start": "2026-09-03"
+  },
+  "baseline_last7_mean": {
+    "val": {
+      "MAE": 3.844,
+      "RMSE": 4.947,
+      "WAPE": 0.2109
+    },
+    "test": {
+      "MAE": 4.036,
+      "RMSE": 5.185,
+      "WAPE": 0.2173
+    }
+  },
+  "baseline_seasonal_naive_lag7": {
+    "val": {
+      "MAE": 4.758,
+      "RMSE": 6.094,
+      "WAPE": 0.261
+    },
+    "test": {
+      "MAE": 4.638,
+      "RMSE": 6.275,
+      "WAPE": 0.2497
+    }
+  },
+  "model": {
+    "val": {
+      "MAE": 3.67,
+      "RMSE": 4.696,
+      "WAPE": 0.2013
+    },
+    "test": {
+      "MAE": 3.694,
+      "RMSE": 4.71,
+      "WAPE": 0.1989
+    }
+  },
+  "horizon_7day_test": {
+    "n_windows": 30,
+    "model_7day_total": {
+      "MAE": 15.285,
+      "RMSE": 17.862,
+      "WAPE": 0.1166
+    },
+    "baseline_7day_total": {
+      "MAE": 16.6,
+      "RMSE": 20.693,
+      "WAPE": 0.1266
+    }
+  }
+}

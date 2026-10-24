@@ -13,6 +13,7 @@ node_modules/
 dist/
 # ml
 ml/artifacts/*.joblib
+ml/data/**/*.csv
 .ipynb_checkpoints/
 # os / ide
 .DS_Store
